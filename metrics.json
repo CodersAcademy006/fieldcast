@@ -1,0 +1,112 @@
+{
+ "train_days": 2469,
+ "test_days": 365,
+ "activity": {
+  "butterfly": {
+   "climatology": {
+    "spearman": 0.364,
+    "mae": 6.033,
+    "best_day_lift": 0.65
+   },
+   "gradient_boosting": {
+    "spearman": 0.477,
+    "mae": 5.338,
+    "best_day_lift": 1.454
+   },
+   "tabpfn": {
+    "spearman": 0.522,
+    "mae": 5.136,
+    "best_day_lift": 1.4
+   }
+  },
+  "bird": {
+   "climatology": {
+    "spearman": -0.042,
+    "mae": 11.401,
+    "best_day_lift": 0.737
+   },
+   "gradient_boosting": {
+    "spearman": 0.376,
+    "mae": 9.272,
+    "best_day_lift": 1.538
+   },
+   "tabpfn": {
+    "spearman": 0.374,
+    "mae": 8.357,
+    "best_day_lift": 1.692
+   }
+  }
+ },
+ "species_auc": {
+  "Lemon Migrant": {
+   "tabpfn": 0.687,
+   "climatology": 0.725,
+   "days_logged_train": 377
+  },
+  "Plain Tiger Butterfly": {
+   "tabpfn": 0.625,
+   "climatology": 0.556,
+   "days_logged_train": 376
+  },
+  "Lemon Pansy": {
+   "tabpfn": 0.647,
+   "climatology": 0.589,
+   "days_logged_train": 359
+  },
+  "Red Pierrot": {
+   "tabpfn": 0.676,
+   "climatology": 0.68,
+   "days_logged_train": 431
+  },
+  "Common Mormon Swallowtail": {
+   "tabpfn": 0.691,
+   "climatology": 0.666,
+   "days_logged_train": 375
+  },
+  "Common Grass Yellow": {
+   "tabpfn": 0.71,
+   "climatology": 0.643,
+   "days_logged_train": 324
+  },
+  "Blue Tiger": {
+   "tabpfn": 0.719,
+   "climatology": 0.638,
+   "days_logged_train": 234
+  },
+  "Common Crow": {
+   "tabpfn": 0.782,
+   "climatology": 0.757,
+   "days_logged_train": 241
+  },
+  "Red-vented Bulbul": {
+   "tabpfn": 0.567,
+   "climatology": 0.542,
+   "days_logged_train": 187
+  },
+  "Black Kite": {
+   "tabpfn": 0.637,
+   "climatology": 0.579,
+   "days_logged_train": 144
+  },
+  "Common Myna": {
+   "tabpfn": 0.568,
+   "climatology": 0.507,
+   "days_logged_train": 163
+  },
+  "Purple Sunbird": {
+   "tabpfn": 0.617,
+   "climatology": 0.568,
+   "days_logged_train": 150
+  },
+  "White-throated Kingfisher": {
+   "tabpfn": 0.686,
+   "climatology": 0.524,
+   "days_logged_train": 125
+  },
+  "Rose-ringed Parakeet": {
+   "tabpfn": 0.476,
+   "climatology": 0.564,
+   "days_logged_train": 147
+  }
+ }
+}

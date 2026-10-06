@@ -1,0 +1,7 @@
+tabpfn==9.1.0
+pandas
+requests
+pyarrow
+scikit-learn
+scipy
+huggingface_hub
