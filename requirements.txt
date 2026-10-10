@@ -5,3 +5,5 @@ pyarrow
 scikit-learn
 scipy
 huggingface_hub
+temporalio==1.34.0
+sentry-sdk==2.71.0

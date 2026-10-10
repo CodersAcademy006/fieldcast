@@ -2,6 +2,7 @@
 Run:  .venv/bin/python model.py backtest   -> prints metrics, writes metrics.json
       .venv/bin/python model.py forecast   -> writes forecast.json (next 7 days, from Open-Meteo forecast)"""
 import json
+import os
 import sys
 
 import numpy as np
@@ -11,6 +12,7 @@ from huggingface_hub import hf_hub_download
 from scipy.stats import spearmanr
 from sklearn.ensemble import HistGradientBoostingRegressor
 from sklearn.metrics import roc_auc_score
+os.environ.setdefault("TABPFN_ALLOW_CPU_LARGE_DATASET", "1")  # 2,469 rows is over TabPFN's CPU guard
 from tabpfn import TabPFNClassifier, TabPFNRegressor
 
 LAT, LNG = 18.52, 73.86

@@ -1,0 +1,22 @@
+{
+ "butterfly_with_weekend": {
+  "spearman": 0.522,
+  "best_day_lift": 1.4,
+  "pick_is_weekend": "52 of 52 weeks"
+ },
+ "bird_with_weekend": {
+  "spearman": 0.374,
+  "best_day_lift": 1.692,
+  "pick_is_weekend": "52 of 52 weeks"
+ },
+ "butterfly_without_weekend": {
+  "spearman": 0.33,
+  "best_day_lift": 0.951,
+  "pick_is_weekend": "13 of 52 weeks"
+ },
+ "bird_without_weekend": {
+  "spearman": -0.069,
+  "best_day_lift": 1.06,
+  "pick_is_weekend": "21 of 52 weeks"
+ }
+}

@@ -3,3 +3,4 @@ __pycache__/
 *.log
 POST.md
 LINKEDIN.md
+data/ckpt_*.jsonl

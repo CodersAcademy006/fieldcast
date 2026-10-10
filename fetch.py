@@ -1,5 +1,6 @@
 """Pull research-grade iNaturalist observations near Pune and daily weather from Open-Meteo.
 Output: data/obs.parquet (one row per observation) and data/weather.parquet (one row per day)."""
+import json
 import time
 from pathlib import Path
 
@@ -13,7 +14,15 @@ OUT.mkdir(exist_ok=True)
 
 
 def observations(taxon_id, name):
-    rows, id_above = [], 0
+    ckpt = OUT / f"ckpt_{name}.jsonl"  # one line per page, so a crashed run resumes at the last full page
+    rows = []
+    if ckpt.exists():
+        for line in ckpt.read_text().splitlines():
+            try:
+                rows += [tuple(r) for r in json.loads(line)]
+            except ValueError:
+                pass  # half-written last line from a killed process
+    id_above = max((r[0] for r in rows), default=0)
     while True:
         r = requests.get("https://api.inaturalist.org/v1/observations", timeout=60, params={
             "lat": LAT, "lng": LNG, "radius": RADIUS_KM, "quality_grade": "research", "taxon_id": taxon_id,
@@ -22,8 +31,11 @@ def observations(taxon_id, name):
         res = r.json()["results"]
         if not res:
             break
-        rows += [(o["id"], o["observed_on"], o["taxon"]["name"] if o.get("taxon") else None,
-                  o["taxon"].get("preferred_common_name") if o.get("taxon") else None, name) for o in res if o.get("observed_on")]
+        page = [(o["id"], o["observed_on"], o["taxon"]["name"] if o.get("taxon") else None,
+                 o["taxon"].get("preferred_common_name") if o.get("taxon") else None, name) for o in res if o.get("observed_on")]
+        with ckpt.open("a") as f:
+            f.write(json.dumps(page) + "\n")
+        rows += page
         id_above = res[-1]["id"]
         print(f"{name}: {len(rows)}", flush=True)
         time.sleep(1)  # iNaturalist asks for at most ~1 request per second
