@@ -104,14 +104,14 @@ def backtest():
 def forecast():
     obs, w = load()
     r = requests.get("https://api.open-meteo.com/v1/forecast", timeout=60, params={
-        "latitude": LAT, "longitude": LNG, "timezone": "Asia/Kolkata", "past_days": 30, "forecast_days": 7,
+        "latitude": LAT, "longitude": LNG, "timezone": "Asia/Kolkata", "past_days": 30, "forecast_days": 8,
         "daily": ",".join(WCOLS)})
     r.raise_for_status()
     f = pd.DataFrame(r.json()["daily"]).rename(columns={"time": "date"})
     f["date"] = pd.to_datetime(f["date"])
     last = w.date.max()
     f = features(pd.concat([w[w.date > last - pd.Timedelta(days=30)][["date"] + WCOLS], f[f.date > last][["date"] + WCOLS]]))
-    nxt = f[f.date > pd.Timestamp.today().normalize() - pd.Timedelta(days=1)].head(7).copy()
+    nxt = f[f.date >= pd.Timestamp.today().normalize() + pd.Timedelta(days=1)].head(7).copy()
     out = {"generated": str(pd.Timestamp.today().date()), "days": []}
     for g in ("butterfly", "bird"):
         nxt[g] = np.expm1(reg(w[FEATS], np.log1p(w[f"{g}_species"])).predict(nxt[FEATS]))

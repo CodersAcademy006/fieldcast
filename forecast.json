@@ -2,20 +2,6 @@
  "generated": "2026-10-11",
  "days": [
   {
-   "date": "2026-10-11",
-   "weekday": "Sunday",
-   "tmax": 33.9,
-   "rain_mm": 0.0,
-   "butterfly_species": 26.7,
-   "bird_species": 19.4,
-   "likely": {
-    "Lemon Migrant": 0.96,
-    "Lemon Pansy": 0.86,
-    "Common Mormon Swallowtail": 0.76,
-    "Red Pierrot": 0.65
-   }
-  },
-  {
    "date": "2026-10-12",
    "weekday": "Monday",
    "tmax": 33.6,
@@ -97,6 +83,20 @@
     "Lemon Pansy": 0.84,
     "Common Mormon Swallowtail": 0.72,
     "Red Pierrot": 0.6
+   }
+  },
+  {
+   "date": "2026-10-18",
+   "weekday": "Sunday",
+   "tmax": 33.2,
+   "rain_mm": 0.0,
+   "butterfly_species": 27.4,
+   "bird_species": 18.9,
+   "likely": {
+    "Lemon Migrant": 0.94,
+    "Lemon Pansy": 0.84,
+    "Common Mormon Swallowtail": 0.72,
+    "Red Pierrot": 0.59
    }
   }
  ]
