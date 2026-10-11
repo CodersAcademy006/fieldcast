@@ -44,3 +44,7 @@ Backtest on a held-out year (from `metrics.json`):
 Uses the open TabPFN v2 weights (`Prior-Labs/TabPFN-v2-reg`, `TabPFN-v2-clf`). Change `LAT`, `LNG` in `fetch.py` and `model.py` for another place.
 
 Data: iNaturalist research-grade observations (each observer's own licence applies, aggregated here as daily counts only) and Open-Meteo weather.
+
+## License
+
+Code: MIT (see LICENSE). Not covered by it: TabPFN v2 weights (Prior Labs license), Gemma 3 (Google Gemma Terms of Use), and iNaturalist observations (each keeps its own license).
